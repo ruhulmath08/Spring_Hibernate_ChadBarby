@@ -1,4 +1,4 @@
-package com.ruhul.odduu;
+package com.ruhul.odduu.constructorinjection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,6 +8,7 @@ public class TennisCoach implements Coach {
 
 	private FortuneService fortuneService;
 
+	// constructor injection
 	@Autowired
 	public TennisCoach(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;

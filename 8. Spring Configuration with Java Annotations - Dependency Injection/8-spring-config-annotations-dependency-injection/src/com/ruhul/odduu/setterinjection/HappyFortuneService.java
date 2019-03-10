@@ -1,4 +1,4 @@
-package com.ruhul.odduu;
+package com.ruhul.odduu.setterinjection;
 
 import org.springframework.stereotype.Component;
 
@@ -9,5 +9,4 @@ public class HappyFortuneService implements FortuneService {
 	public String getFortune() {
 		return "Today is your lucky day!!!";
 	}
-
 }

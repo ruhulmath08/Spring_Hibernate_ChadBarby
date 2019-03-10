@@ -1,4 +1,4 @@
-package com.ruhul.odduu;
+package com.ruhul.odduu.methodinjection;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -7,7 +7,7 @@ public class AnnotationDemoApp {
 	public static void main(String[] args) {
 
 		// read spring congig file
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContextMethod.xml");
 
 		// get the bean from container
 		Coach theCoach = context.getBean("tennisCoach", Coach.class);

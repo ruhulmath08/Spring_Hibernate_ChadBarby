@@ -1,4 +1,4 @@
-package com.ruhul.odduu;
+package com.ruhul.odduu.fieldinjection;
 
 public interface FortuneService {
 
