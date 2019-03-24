@@ -1,0 +1,15 @@
+Problem:
+--------
+Multiple annotations found at this line:
+	- java.util.List cannot be resolved 
+	 to a type
+	- java.util.List cannot be resolved 
+	 to a type
+
+
+Solve:
+------
+1) Right-click on project » Properties » Java Build Path
+2) Select Libraries tab
+3) Find the JRE System Library and remove it
+4) Click Add Library... button at right side » Add the JRE System Library (Workspace default JRE)
