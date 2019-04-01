@@ -1,18 +1,12 @@
-package com.ruhul.hibernate.entity;
+package com.ruhul.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
 public class Student {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
@@ -26,7 +20,6 @@ public class Student {
 	private String email;
 
 	public Student() {
-
 	}
 
 	public Student(String firstName, String lastName, String email) {
@@ -71,5 +64,4 @@ public class Student {
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
-
 }
