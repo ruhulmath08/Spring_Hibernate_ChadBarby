@@ -1,4 +1,4 @@
-package com.ruhul.hibernateCRUD.entity;
+package com.ruhul.hibernate.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
