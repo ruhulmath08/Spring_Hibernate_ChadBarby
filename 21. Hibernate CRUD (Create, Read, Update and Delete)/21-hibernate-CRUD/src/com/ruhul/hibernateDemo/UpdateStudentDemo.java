@@ -21,31 +21,29 @@ public class UpdateStudentDemo {
 		try {
 			int studentId = 1;
 	
-			//now get a new session and start transaction
-			session = factory.getCurrentSession();
+			//start a transaction
 			session.beginTransaction();
 			
 			//retrieve student based on the id: primary key
 			System.out.println("\nGetting student with id:" + studentId);
 			Student myStudent = session.get(Student.class, studentId);
+			System.out.println(myStudent);
 			
 			//update student
-			System.out.println("Updating student...");
-			myStudent.setFirstName("Md. Ruhul");
-			
-			//commit the transaction
+			System.out.println("\n\nUpdating student...");
+			myStudent.setFirstName("Md. Ruhul Amin");
 			session.getTransaction().commit();
+			System.out.println(myStudent);
 			
 			
 			//update email for all student
+			System.out.println("\n\nupdate email for all student");
 			session = factory.getCurrentSession();
 			session.beginTransaction();
-			session.createQuery("update Student set email = 'demo@gmail.com'").executeUpdate();
-			
-			//commit the transaction
+			session.createQuery("update Student set email = 'demo_email@gmail.com'").executeUpdate();
 			session.getTransaction().commit();
 			
-			System.out.println("Done!!!");
+			System.out.println("\n\nDone!!!");
 		} 
 		finally {
 			factory.close();

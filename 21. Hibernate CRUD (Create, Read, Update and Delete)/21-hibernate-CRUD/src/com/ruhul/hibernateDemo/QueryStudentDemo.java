@@ -24,25 +24,23 @@ public class QueryStudentDemo {
 
 			// start a transaction
 			session.beginTransaction();
-
-			// query student
+			
+			// display all students
+			System.out.println("Display all students");
 			List<Student> theStudents = session.createQuery("from Student").getResultList();
-
-			// display the student
 			displayStudents(theStudents);
 
-			// query students: lastName="Ruhul"
+			// Display student wth last name: 'Ruhul'
+			System.out.println("\n\nDisplay student wth last name: 'Ruhul'");
 			theStudents = session.createQuery("from Student s where s.lastName = 'Ruhul'").getResultList();
+			displayStudents(theStudents);
 
-			// display the student
-			System.out.println("\n\nStudents who have last name of : Ruhul");
+			// display students with lastName="Ruhul" OR email="reza@gmail.com"
+			System.out.println("\n\nStudents who have last name of : Ruhul OR email of: reza@gmail.com");
+			theStudents = session.createQuery("from Student s where s.lastName = 'Ruhul' or s.email = 'reza@gmail.com'")
+					.getResultList();
 			displayStudents(theStudents);
-			
-			//query students: lastName="Ruhul" OR email="reza@gmail.com"
-			theStudents = session.createQuery("from Student s where s.lastName = 'Ruhul' or s.email = 'reza@gmail.com'").getResultList();
-			System.out.println("\n\nStudents who have last name of : Ruhul OR email of: reza@gmail.com" );
-			displayStudents(theStudents);
-			
+
 			// commit the transaction
 			session.getTransaction().commit();
 			System.out.println("Done!!!");
@@ -52,7 +50,7 @@ public class QueryStudentDemo {
 		}
 	}
 
-	//method for display students
+	// method for display students
 	private static void displayStudents(List<Student> theStudents) {
 		for (Student tempStudent : theStudents) {
 			System.out.println(tempStudent);
