@@ -1,0 +1,9 @@
+Installing Hibernate Tools on Eclipse Neon (4.6)
+Go to the menu Help > Install New Software and click the Add button.
+
+Use something like JBoss Hibernate for the name and insert the following URL for the location:
+
+http://download.jboss.org/jbosstools/neon/stable/updates/ 
+Wait for the product tree to load and then expand the JBoss Web and Java EE Development folder and select the Hibernate Tools product and click the Next > button. Then follow on accepting all the subsequent questions, licence, etc.
+
+When the installation is finished, restart Eclipse as required. After that, to open the Hibernate perspective go to the menu Window > Perspective > Open Perspective > Others and search for Hibernate.

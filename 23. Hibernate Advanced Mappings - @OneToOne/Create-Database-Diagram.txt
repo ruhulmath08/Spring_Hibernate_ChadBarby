@@ -1,3 +1,6 @@
-Database -> Reverse Engineer -> Stored Connection(hbstudent) -> Next -> Next -> Select the schemas (hb-01-one-to-one-uni) -> Next -> Give tik mark (Import_MySQL_Table_Objects & Please_import_objects_on_a_diagram) -> Execute -> Next -> Finish
+Database -> Reverse Engineer -> Stored Connection(hbstudent) -> Next 
+-> Next -> Select the schemas (hb-01-one-to-one-uni) -> 
+Next -> Give tik mark (Import_MySQL_Table_Objects & Please_import_objects_on_a_diagram) 
+-> Execute -> Next -> Finish
 
 Now we will see the diagram... 
