@@ -24,11 +24,11 @@ public class CreateDemo {
 		try {
 			// create the object
 			Instructor tempInstructor = 
-					new Instructor("Razaul", "Islam", "reza@gmail.com");
+					new Instructor("Arif", "Islam", "arif@gmail.com");
 			
 			InstructorDetail tempInstructorDetail = 
-					new InstructorDetail("https://www.graphicsstepbystep.com", 
-							"Designing");
+					new InstructorDetail("https://www.logictepbystep.com", 
+							"Playing Game");
 
 			// associate the objects
 			tempInstructor.setInstructorDetail(tempInstructorDetail);

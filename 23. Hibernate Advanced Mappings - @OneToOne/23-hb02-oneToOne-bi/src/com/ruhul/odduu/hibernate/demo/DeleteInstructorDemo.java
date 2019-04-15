@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.ruhul.odduu.hibernate.entity.Instructor;
 import com.ruhul.odduu.hibernate.entity.InstructorDetail;
 
-public class DeleteDemo {
+public class DeleteInstructorDemo {
 
 	public static void main(String[] args) {
 		
@@ -27,7 +27,7 @@ public class DeleteDemo {
 			session.beginTransaction();
 			
 			//get instructor by primary key
-			int theId = 1;
+			int theId = 2;
 			Instructor tempInstructor = session.get(Instructor.class, theId);
 			System.out.println("Found instructor: "+tempInstructor);
 			
