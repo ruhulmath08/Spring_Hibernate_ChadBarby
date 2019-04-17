@@ -39,11 +39,12 @@ public class Instructor {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "instructor_detail_id")
 	private InstructorDetail instructorDetail;
-
+ 
 	// update Instructor for Course
-	@OneToMany(mappedBy = "instructor", 
-			cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-						CascadeType.DETACH, CascadeType.REFRESH })
+	// Refers to “instructor” property in "Course" class
+	@OneToMany(mappedBy = "instructor", cascade = { 
+			CascadeType.PERSIST, CascadeType.MERGE, 
+			CascadeType.DETACH,CascadeType.REFRESH })
 	private List<Course> courses;
 
 	// generate constructor
@@ -112,13 +113,13 @@ public class Instructor {
 		return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", instructorDetail=" + instructorDetail + "]";
 	}
-	
-	//add convenience methods for bi-directional relationship 
-	public void add(Course tempCourse){
-		if(courses == null) {
+
+	// add convenience methods for bi-directional relationship
+	public void add(Course tempCourse) {
+		if (courses == null) {
 			courses = new ArrayList<Course>();
 		}
-		
+
 		courses.add(tempCourse);
 		tempCourse.setInstructor(this);
 	}

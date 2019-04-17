@@ -24,7 +24,8 @@ public class Course {
 	@Column(name = "title")
 	private String title;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, 
+	@ManyToOne(cascade = { 
+			CascadeType.PERSIST, CascadeType.MERGE, 
 			CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "instructor_id")
 	private Instructor instructor;
@@ -68,7 +69,4 @@ public class Course {
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + "]";
 	}
-
-	// annotated fields
-
 }

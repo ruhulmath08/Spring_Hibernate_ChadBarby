@@ -8,7 +8,7 @@ import com.ruhul.odduu.hibernate.entity.Course;
 import com.ruhul.odduu.hibernate.entity.Instructor;
 import com.ruhul.odduu.hibernate.entity.InstructorDetail;
 
-public class CreateInstructorDemo {
+public class GetInstructorCoursesDemo {
 
 	public static void main(String args[]) {
 
@@ -24,31 +24,23 @@ public class CreateInstructorDemo {
 		Session session = factory.getCurrentSession();
 
 		try {
-			// create the object
-			Instructor tempInstructor = 
-					new Instructor("Ruhul", "Amin", "ruhul@gmail.com");
-			
-			InstructorDetail tempInstructorDetail = 
-					new InstructorDetail("https://www.codestepbystep.com", 
-							"Coding");
-
-			// associate the objects
-			tempInstructor.setInstructorDetail(tempInstructorDetail);
 
 			// start transaction
 			session.beginTransaction();
 
-			// save the instructor
-			// Note: this will ALSO save the tempInstructorDetail object because of CascadeType.ALL
-			System.out.println("Saving instrucror: "+tempInstructor);
-			session.save(tempInstructor);
-
+			// get the instructor from DB
+			int theID = 1;
+			Instructor tempInstructor = session.get(Instructor.class, theID);
+			System.out.println("Instructor: "+tempInstructor);
+			
+			//get courses for the instructor
+			System.out.println("Courses: "+tempInstructor.getCourses());
+			
 			// commit the transaction
 			session.getTransaction().commit();
 			System.out.println("Done!!!");
-		} 
-		finally {
-			//add clean up code
+		} finally {
+			// add clean up code
 			session.close();
 			factory.close();
 		}
