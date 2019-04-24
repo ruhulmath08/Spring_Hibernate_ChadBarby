@@ -3,12 +3,13 @@ package com.ruhul.odduu.hibernate.demo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.ruhul.odduu.hibernate.entity.lazy.Course;
 import com.ruhul.odduu.hibernate.entity.lazy.Instructor;
 import com.ruhul.odduu.hibernate.entity.lazy.InstructorDetail;
 
-public class LazyFatchingCloseSessionSolution1 {
+public class LazyFatchingCloseSessionSolution2 {
 
 	public static void main(String[] args) {
 
@@ -27,21 +28,32 @@ public class LazyFatchingCloseSessionSolution1 {
 
 			// start transaction
 			session.beginTransaction();
-
+			
+			// Option-2: Hibernate query with HQL
+			
 			// get the Instructor from DB
 			int theId = 1;
-			Instructor tempInstructor = session.get(Instructor.class, theId);
-			System.out.println("Instructor: " + tempInstructor);
-
-			// call the getter() method while session is open
-			// get courses for the Instructor
-			System.out.println("Courses (Session Open): " + tempInstructor.getCourses());
-
+			
+			// Hibernate query HQL
+			Query<Instructor> query = 
+					session.createQuery("SELECT i FROM Instructor i "
+							+ "JOIN FETCH i.courses "
+							+ "WHERE i.id=:theInstructorId", Instructor.class);
+			
+			// set parameter on query
+			query.setParameter("theInstructorId", theId);
+			
+			// execute query and get Instructor
+			Instructor tempInstructor = query.getSingleResult();
+			System.out.println("Instructor: " + tempInstructor);			
+			
 			// commit the transaction
 			session.getTransaction().commit();
 
 			// close the session
 			session.close();
+			
+			System.out.println("\nMessage: The session is now closed!!!\n");
 
 			// get courses for the Instructor after session is closed
 			System.out.println("Courses (Session Closed): " + tempInstructor.getCourses());
