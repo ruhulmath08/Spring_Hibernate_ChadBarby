@@ -7,8 +7,9 @@ import org.hibernate.cfg.Configuration;
 import com.ruhul.odduu.hibernate.entity.Course;
 import com.ruhul.odduu.hibernate.entity.Instructor;
 import com.ruhul.odduu.hibernate.entity.InstructorDetail;
+import com.ruhul.odduu.hibernate.entity.Review;
 
-public class LazyDemo {
+public class CreateCoursesAndReviewsDemo {
 
 	public static void main(String args[]) {
 
@@ -18,6 +19,7 @@ public class LazyDemo {
 									.addAnnotatedClass(Instructor.class)
 									.addAnnotatedClass(InstructorDetail.class)
 									.addAnnotatedClass(Course.class)
+									.addAnnotatedClass(Review.class)
 									.buildSessionFactory();
 
 		// create session
@@ -28,13 +30,19 @@ public class LazyDemo {
 			// start transaction
 			session.beginTransaction();
 
-			// get the instructor from DB
-			int theID = 1;
-			Instructor tempInstructor = session.get(Instructor.class, theID);
-			System.out.println("com.ruhul: Instructor: "+tempInstructor);
+			//create a course
+			Course tempCourse = new Course("Oracle Certified Java Programmer - JAVA-8");
 			
-			//get courses for the instructor
-			System.out.println("com.ruhul: Courses: "+tempInstructor.getCourses());
+			//add some reviews
+			tempCourse.addReview(new Review("Covere total 23 core concept related to Core-Jave"));
+			tempCourse.addReview(new Review("Provide Details Note and Source code for each topics"));
+			tempCourse.addReview(new Review("Details explanation with real world example"));
+			
+			//save the course ... and leverage the cascade all
+			System.out.println("Saving the courses...");
+			System.out.println(tempCourse);
+			System.out.println(tempCourse.getReview());
+			session.save(tempCourse);
 			
 			// commit the transaction
 			session.getTransaction().commit();
