@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
 /**
- * Servlet implementation class TestDBServlet
+ * Servlet implementation class TestDbServlet
  */
-@WebServlet("/TestDBServlet")
-public class TestDBServlet extends HttpServlet {
+@WebServlet("/TestDbServlet")
+public class TestDbServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,12 +28,12 @@ public class TestDBServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		// setup connection variables
-		String user = "hbstudent";
-		String pass = "hbstudent";
+		String user = "springstudent";
+		String pass = "springstudent";
 		String jdbcURL = "jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&serverTimezone=UTC";
 		String driver = "com.mysql.cj.jdbc.Driver";
 
-		// get connection databases
+		// get connection to database
 		try {
 			PrintWriter out = response.getWriter();
 			System.out.println("Connection to database: " + jdbcURL);
@@ -46,8 +46,6 @@ public class TestDBServlet extends HttpServlet {
 			exe.printStackTrace();
 			throw new ServletException(exe);
 		}
-
-		//
 	}
 
 }
