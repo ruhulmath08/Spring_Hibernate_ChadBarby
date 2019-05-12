@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.odduu.ruhul.dao.CustomerDAO;
 import com.odduu.ruhul.entity.Customer;
@@ -16,8 +17,9 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDAO customerDAO;
 	
 	@Override
+	@Transactional
 	public List<Customer> getCustomers() {
-		return null;
+		return customerDAO.getCustomers();
 	}
 
 }
