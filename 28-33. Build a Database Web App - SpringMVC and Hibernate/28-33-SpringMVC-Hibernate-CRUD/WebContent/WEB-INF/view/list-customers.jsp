@@ -19,6 +19,11 @@
 	<div id="container">
 		<div id="content">
 			<!-- put new button: Add Customer -->
+			<!-- 
+				The return value of an event handler determines whether or not the default browser behaviour should take place as well. In the case of clicking on links, this would be following the link, but the difference is most noticeable in form submit handlers, where you can cancel a form submission if the user has made a mistake entering the information.
+
+				I don't believe there is a W3C specification for this. All the ancient JavaScript interfaces like this have been given the nickname "DOM 0", and are mostly unspecified. You may have some luck reading old Netscape 2 documentation.
+			-->
 			<input type="button" value="Add Customer"
 				onclick="window.location.href='showFormForAdd'; return false;"
 				class="add-button" />
