@@ -12,7 +12,7 @@ public class TrafficFortuneService {
 		// simulate a delay
 		try {
 			
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(2);
 		} 
 		catch (InterruptedException e) {
 			// TODO Auto-generated catch block

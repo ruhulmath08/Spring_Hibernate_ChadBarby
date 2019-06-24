@@ -16,13 +16,15 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import com.ruhul.aopdemo.Account;
+import com.ruhul.aopdemo.AroundWithLoggerDemoApp;
 
 @Aspect
 @Component
 @Order(2)
 public class MyDemoLoggingAspect {
 	
-	private Logger myLogger = Logger.getLogger(getClass().getName());
+	private static Logger myLogger =
+			Logger.getLogger(MyDemoLoggingAspect.class.getName());
 
 	// add a new advice for @Around
 	@Around("execution(* com.ruhul.aopdemo.service.*.getFortune(..))")
