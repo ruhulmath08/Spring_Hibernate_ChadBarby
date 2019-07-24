@@ -1,0 +1,11 @@
+Sourse: https://springframework.guru/spring-framework-annotations/
+-------------------------------------------------------------------
+
+@Configuration:
+Spring Configuration annotation indicates that the class has @Bean definition methods.
+
+@EnableWebMvc:
+Adding this annotation to a @Configuration class imports the Spring MVC configuration from WebMvcConfigurationSupport which is the main class providing the configuration behind the MVC Java config.
+
+@ComponentScan:
+This annotation is used with @Configuration annotation to allow Spring to know the packages to scan for annotated components. @ComponentScan is also used to specify base packages using basePackageClasses or basePackage attributes to scan. If specific packages are not defined, scanning will occur from the package of the class that declares this annotation.
