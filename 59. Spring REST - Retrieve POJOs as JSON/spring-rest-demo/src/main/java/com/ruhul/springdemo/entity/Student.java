@@ -10,7 +10,6 @@ public class Student {
 	}
 
 	public Student(String firstName, String laseName) {
-		super();
 		this.firstName = firstName;
 		this.laseName = laseName;
 	}
@@ -30,5 +29,4 @@ public class Student {
 	public void setLaseName(String laseName) {
 		this.laseName = laseName;
 	}
-
 }
