@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.ruhul.springdemo</groupId>
+	<groupId>com.luv2code.springdemo</groupId>
 	<artifactId>spring-crm-rest</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
@@ -21,21 +21,18 @@
 	<dependencies>
 
 		<!-- Spring -->
-		<!-- REST use WEB-MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 
-		<!-- Transaction for using hibernate in the background for data request -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 
-		<!-- ORM -> Spring supporting classes for using Hibernate -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -49,7 +46,7 @@
 			<version>2.9.5</version>
 		</dependency>
 
-		<!-- Hibernate -> ORM mapping tool for storing data in the database -->
+		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -63,15 +60,14 @@
 			<version>${mysql.connector.version}</version>
 		</dependency>
 
-		<!-- C3PO -> Connection polling framework for managing the database connections -->
+		<!-- C3PO -->
 		<dependency>
 			<groupId>com.mchange</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>${c3po.version}</version>
 		</dependency>
 
-		<!-- Servlet+JSP -->
-		<!-- Spring MVC use the Servlet API in the background -->
+		<!-- Servlet+JSP+JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -84,7 +80,7 @@
 			<version>2.3.1</version>
 		</dependency>
 
-		<!-- to compensate for java 9+ not including jaxb -->
+		<!-- to compensate for java 9 not including jaxb -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -96,9 +92,8 @@
 	<build>
 
 		<finalName>spring-crm-rest</finalName>
-
+		
 		<plugins>
-
 			<!-- Builds a Web Application Archive (WAR) file from the project output 
 				and its dependencies. -->
 			<plugin>
@@ -111,3 +106,4 @@
 		</plugins>
 	</build>
 </project>
+
