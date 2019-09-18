@@ -1,0 +1,19 @@
+Eclipse showing "Maven Configuration Problem: Unknown":
+-------------------------------------------------------
+
+I just imported a spingboot project that I created in https://start.spring.io/ in eclipse. I tried to import two times, but the problem persists. Already tried to do a mvn update , a mvn clean install, tried to clean the project but none of this worked. Its a problem in the first line of pom xml file. I dont have any idea how to solve this. I'm using java 11
+
+This seems like a bug in eclipse: https://bugs.eclipse.org/bugs/show_bug.cgi?id=547340
+
+You can fix this by temporary downgrading the maven jar plugin version to 3.1.1 from 3.1.2. Add this to the properties section:
+
+<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+
+Update Project:
+---------------
+1) Right Click on your Project
+2) Go to Maven
+3) Click on Update Project
+4) Clean and Re-Run your Application
+
+Link: https://stackoverflow.com/questions/56212981/eclipse-showing-maven-configuration-problem-unknown
