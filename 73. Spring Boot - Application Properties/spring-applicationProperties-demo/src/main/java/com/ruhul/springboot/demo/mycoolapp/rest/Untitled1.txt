@@ -1,0 +1,9 @@
+Android Navigation Drawer (AndroidX):
+
+1) Create a "menu" directory
+2) Create some layout files
+	a) drawer_header.xml
+	b) drawer_toolbar.xml
+	c) contain_main
+
+3) Go to "activity_main.xml" 
